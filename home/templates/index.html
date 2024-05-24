@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block start %}
+    <h1>First Django HTML Templete</h1>
+    <p>Test HTML Templete</p>
+    {{peoples}}
+
+    <div class="container-fluid">          
+        <table class="table table-hover table-dark, table-sm" align=left border=black>
+          <thead>
+            <tr>
+              <th align=center>Srno</th>
+              <th align=center bgcolor="red">Name</th>
+              <th align=center>Age</th>
+              <th align=center>Can Vote</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for people in peoples %}
+            <tr>
+              <td align=center>{{forloop.counter}}</td>
+              <td align=center style="color:red">{{people.name}}</td>
+              <td align=center>{{people.age}}</td>
+              <td align=center>
+                {% if people.age >= 25 %}
+                👍
+                {% else %}
+                👎
+                {% endif %}
+              </td>
+             
+            </tr>
+            {% endfor %}  
+          </tbody>
+         
+        </table>
+        
+
+        </div>
+        
+      </div>
+      <br>
+    <div>
+      <P>{{text}}</P>
+
+    <p>
+      {% if "cucumber" in vegetables %}
+          Yes Available
+      {% else %}
+          Not Available
+      {% endif %}
+    </p>
+    </div>
+{% endblock %}
